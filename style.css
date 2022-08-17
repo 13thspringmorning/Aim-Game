@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    text-align: center;
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+.screen {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: margin 0.5s ease-out;
+}
+
+.up {
+    margin-top: -100vh;
+}
+
+.time-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.time-list li {
+    display: inline-block;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* Buttons glow  */
+
+button {
+    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.4);
+}
+
+button:hover {
+    border: 2px solid #16D9E3;
+    color: #16D9E3;
+}
+
+button {
+    color: #fff;
+    margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+    outline-style: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    background: #111;
+    z-index: 0;
+    border-radius: 10px;
+    background: rgb(34, 34, 34);
+
+    border: 2px solid transparent;
+    /* Adding transparent border to prevent elements from moving  */
+}
+
+button:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+button:active {
+    color: #000
+}
+
+button:active:after {
+    background: transparent;
+}
+
+button:hover:before {
+    opacity: 1;
+}
+
+button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(34, 34, 34);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Board glow */
+
+.board {
+    width: 500px;
+    height: 500px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background: #2c2426;
+    border-radius: 10px;
+  }
+
+  .board:before,
+  .board:after {
+    content: "";
+    top: -2px;
+    left: -2px;
+    position: absolute;
+    border-radius: 10px;
+    background: linear-gradient(
+      45deg,
+      #ff0037,
+      #ff00f2,
+      #f84983,
+      #fffb00,
+      #9dff00,
+      #fba300,
+      #ff6600,
+      #ff3c00,
+      #3348ff,
+      #ae00ff
+    );
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: glow 20s linear infinite;
+  }
+
+  .board:after {
+    filter: blur(30px);
+  }
+
+  @keyframes glow {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
